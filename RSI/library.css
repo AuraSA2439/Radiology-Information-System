@@ -1,0 +1,455 @@
+/* Colors */
+.primary-50 {
+    background: #E6EDF0;
+}
+.primary-100 {
+    background: #B0C7D1;
+}
+.primary-200 {
+    background: #8AACBA;
+}
+.primary-300 {
+    background: #54869B;
+}
+.primary-400 {
+    background: #336E88;
+}
+.primary-500 {
+    background: #004A6A;
+}
+.primary-600 {
+    background: #004360;
+}
+.primary-700 {
+    background: #00354B;
+}
+.primary-800 {
+    background: #00293A;
+}
+.primary-900 {
+    background: #001F2D;
+}
+
+.toska-50 {
+    background: #EBF5F6;
+}
+.toska-100 {
+    background: #C1E1E2;
+}
+.toska-200 {
+    background: #A3D2D3;
+}
+.toska-300 {
+    background: #79BEBF;
+}
+.toska-400 {
+    background: #5FB1B3;
+}
+.toska-500 {
+    background: #379EA0;
+}
+.toska-600 {
+    background: #329092;
+}
+.toska-700 {
+    background: #277072;
+}
+.toska-800 {
+    background: #1E5758;
+}
+.toska-900 {
+    background: #174243;
+}
+
+.red-50 {
+    background: #F9E8EA;
+}
+.red-100 {
+    background: #EBB8BE;
+}
+.red-200 {
+    background: #E2969E;
+}
+.red-300 {
+    background: #D56672;
+}
+.red-400 {
+    background: #CD4956;
+}
+.red-500 {
+    background: #C01B2C;
+}
+.red-600 {
+    background: #AF1928;
+}
+.red-700 {
+    background: #88131F;
+}
+.red-800 {
+    background: #6A0F18;
+}
+.red-900 {
+    background: #510B12;
+}
+
+.green-50 {
+    background: #E6EEE9;
+}
+.green-100 {
+    background: #B0C9BC;
+}
+.green-200 {
+    background: #8AAF9B;
+}
+.green-300 {
+    background: #548A6E;
+}
+.green-400 {
+    background: #337451;
+}
+.green-500 {
+    background: #005126;
+}
+.green-600 {
+    background: #004A23;
+}
+.green-700 {
+    background: #003A1B;
+}
+.green-800 {
+    background: #002D15;
+}
+.green-900 {
+    background: #002210;
+}
+
+.pure-10 {
+    background: #FFFFFF;
+}
+.pure-100 {
+    background: #0F0F0F;
+}
+
+.neutral-10 {
+    background: #FCFBFB;
+}
+.neutral-20 {
+    background: #F3F2F2;
+}
+.neutral-30 {
+    background: #ECEAEA;
+}
+.neutral-40 {
+    background: #E1DDDD;
+}
+.neutral-50 {
+    background: #DAD6D6;
+}
+.neutral-60 {
+    background: #D1CDCD;
+}
+.neutral-70 {
+    background: #A4A1A1;
+}
+.neutral-80 {
+    background: #7E7B7B;
+}
+.neutral-90 {
+    background: #4F4E4E;
+}
+.neutral-100 {
+    background: #2A2A2A;
+}
+
+.main-50 {
+    background: #E8E9EA;
+}
+.main-100 {
+    background: #B6BABD;
+}
+.main-200 {
+    background: #93989D;
+}
+.main-300 {
+    background: #626A71;
+}
+.main-400 {
+    background: #444D55;
+}
+.main-500 {
+    background: #15202B;
+}
+.main-600 {
+    background: #131D27;
+}
+.main-700 {
+    background: #0F171F;
+}
+.main-800 {
+    background: #0C1218;
+}
+.main-900 {
+    background: #090D12;
+}
+
+.inner-50 {
+    background: #EFF1F2;
+}
+.inner-100 {
+    background: #CCD2D7;
+}
+.inner-200 {
+    background: #B4BCC4;
+}
+.inner-300 {
+    background: #929EA9;
+}
+.inner-400 {
+    background: #7D8B98;
+}
+.inner-500 {
+    background: #5C6E7E;
+}
+.inner-600 {
+    background: #546473;
+}
+.inner-700 {
+    background: #414E59;
+}
+.inner-800 {
+    background: #333D45;
+}
+.inner-900 {
+    background: #272E35;
+}
+
+.outer-50 {
+    background: #E9E9EB;
+}
+.outer-100 {
+    background: #B9BCBF;
+}
+.outer-200 {
+    background: #989CA1;
+}
+.outer-300 {
+    background: #686E76;
+}
+.outer-400 {
+    background: #4B525B;
+}
+.outer-500 {
+    background: #1E2732;
+}
+.outer-600 {
+    background: #1B232E;
+}
+.outer-700 {
+    background: #151C24;
+}
+.outer-800 {
+    background: #11151C;
+}
+.outer-900 {
+    background: #0D1015;
+}
+
+.blue-50 {
+    background: #E8F5FE;
+}
+.blue-100 {
+    background: #B9E0FA;
+}
+.blue-200 {
+    background: #97D1F8;
+}
+.blue-300 {
+    background: #68BCF5;
+}
+.blue-400 {
+    background: #4AAFF3;
+}
+.blue-500 {
+    background: #1D9BF0;
+}
+.blue-600 {
+    background: #1A8DDA;
+}
+.blue-700 {
+    background: #156EAA;
+}
+.blue-800 {
+    background: #105584;
+}
+.blue-900 {
+    background: #0C4165;
+}
+
+/* .neon-50 {
+    background: #F9E8EA;
+}
+.neon-100 {
+    background: #EBB8BE;
+}
+.neon-200 {
+    background: #E2969E;
+}
+.neon-300 {
+    background: #D56672;
+}
+.neon-400 {
+    background: #CD4956;
+}
+.neon-500 {
+    background: #C01B2C;
+}
+.neon-600 {
+    background: #AF1928;
+}
+.neon-700 {
+    background: #88131F;
+}
+.neon-800 {
+    background: #6A0F18;
+}
+.neon-900 {
+    background: #510B12;
+} */
+
+/* Fonts */
+.bold {
+	font-weight: bold;
+}
+
+.medium_font {
+	font-weight: 400;
+}
+
+/* .txt {
+	height: 24px;
+	background-color: transparent;
+	color: inherit;
+} */
+
+.sm {
+	font-size: 10px;
+	color: inherit;
+	background-color: inherit;
+}
+
+.base {
+	font-size: 12px;
+	color: inherit;
+    background-color: inherit;
+}
+
+.lg {
+	font-size: 14px;
+	color: inherit;
+	background-color: inherit;
+}
+
+.xl {
+	font-size: 16px;
+	color: inherit;
+	background-color: inherit;
+}
+
+.xl2 {
+	font-size: 20px;
+	color: inherit;
+	background-color: inherit;
+}
+
+.xl3 {
+	font-size: 26px;
+	color: inherit;
+	background-color: inherit;
+}
+
+.xl4 {
+	font-size: 32px;
+	color: inherit;
+	background-color: inherit;
+}
+
+.xl5 {
+	font-size: 44px;
+	color: inherit;
+	background-color: inherit;
+}
+
+.xl6 {
+	font-size: 56px;
+	color: inherit;
+	background-color: inherit;
+}
+
+.xl7{
+	font-size: 68px;
+	color: inherit;
+	background-color: inherit;
+}
+
+.xl8{
+	font-size: 92px;
+	color: inherit;
+	background-color: inherit;
+}
+
+.xl9{
+	font-size: 124px;
+	color: inherit;
+	background-color: inherit;
+}
+
+h1, h2, h3, h4, h5 {
+	margin: 0;
+	padding: 0;
+	color: inherit;
+	background-color: inherit;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+	color: inherit;
+}
+
+/* Icons */
+.material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;  /* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+	background-color: inherit;
+	color: white;
+	/* align-self: inherit;
+	align-items: inherit;
+	align-content: inherit;
+	justify-self: inherit;
+	justify-items: inherit;
+	justify-content: inherit; */
+}	
+
+.material-icons.nocolor{
+	/* font-size: 20px; */
+	color: #414E59;
+}	
+
+/*.material-icons.small_icon{
+	font-size: 20px;
+}*/
+
+.small_line {
+	position: relative;
+	top: 8px;
+	z-index: 1;
+}

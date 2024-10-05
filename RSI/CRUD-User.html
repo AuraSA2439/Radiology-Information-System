@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' type='text/css' href='styles.css'>
+    <link rel='stylesheet' type='text/css' href='library.css'>
+    <script src="js.js"></script>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD' crossorigin='anonymous'>
+    <link href='https://fonts.googleapis.com/css2?family=Asap' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>CRUD - User</title>
+</head>
+<body>
+  <div id='header'>
+    <img src='/resource/logo4_crop.png' width = 200px>
+    <button type="#" class="account" id="account" onclick="open_dropdown_account()">
+      <div class="circle"></div>
+      <div class="xl2">Susi Suanti</div>
+    </button>
+    <div class="dropdown-container" id="dropdown_account">
+      <a class="dropdown-content with-icon" href="#">
+        <span class="material-icons nocolor">assignment_ind</span>
+        Manage Profile
+      </a>
+      <a class="dropdown-content with-icon" href="#">
+        <span class="material-icons nocolor">logout</span>
+        Log Out
+      </a>
+    </div>
+  </div>
+  <div id='page'>
+    <div id='sidemenu'>
+      <div class="wrapper sideM">
+        <div class="welcome">
+          <div class='lg'>June 2th 2024</div>
+          <div class='xl3 bold'>20:55:00 WIB</div>
+          <div class="lg">Good Evening Budi Wiranto!</div>
+        </div>
+        <div class='statusbar'>
+          <div class="textfield txtSM" id="history">
+            <span class="material-icons">history</span>
+            <div class="lg">Today's History</div>
+          </div>
+          <div class="wraps">
+            <div class="rows small">
+              <div class="sm">11:50:00</div>
+              <div class="tag small_tag Green">
+                <div class="sm">Normal</div>
+              </div>
+            </div>
+            <div class="rows small">
+              <div class="sm">09:30:00</div>
+              <div class="tag small_tag Red">
+                <div class="sm">CITO</div>
+              </div>
+            </div>
+            <div class="rows small">
+              <div class="sm">09:12:00</div>
+              <div class="tag small_tag Green">
+                <div class="sm">Normal</div>
+              </div>
+            </div>
+            <div class="rows small">
+              <div class="sm">17:07:00</div>
+              <div class="tag small_tag Red">
+                <div class="sm">CITO</div>
+              </div>
+            </div>
+          </div>
+          <div class="textfield" id="stats">
+            <div class="sm">Normal: 2 | CITO: 2</div>
+          </div>
+        </div>
+        <div class='statusbar'>
+          <div class="textfield txtSM" id="work">
+            <span class="material-icons">history</span>
+            <div class="lg">Today's Worklist</div>
+          </div>
+          <div class="wraps">
+            <div class="rows small">
+              <div class="sm">Not Started</div>
+              <div class="sm">0</div>
+            </div>
+            <div class="rows small">
+              <div class="sm">In Progress</div>
+              <div class="sm">1</div>
+            </div>
+            <div class="rows small">
+              <div class="sm">Done</div>
+              <div class="sm">2</div>
+            </div>
+          </div>
+        </div>
+        <div class='statusbar'>
+          <div class="textfield txtSM" id="modality">
+            <span class="material-icons">history</span>
+            <div class="lg">Today's Modality Data</div>
+          </div>
+          <div class="wraps">
+            <div class="rows small">
+              <div class="sm">CR</div>
+              <div class="sm">1</div>
+            </div>
+            <div class="rows small">
+              <div class="sm">CT</div>
+              <div class="sm">1</div>
+            </div>
+            <div class="rows small">
+              <div class="sm">PR</div>
+              <div class="sm">0</div>
+            </div>
+            <div class="rows small">
+              <div class="sm">MR</div>
+              <div class="sm">1</div>
+            </div>
+            <div class="rows small">
+              <div class="sm">DX</div>
+              <div class="sm">1</div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <div id="mainframe">
+      <div id='nav-header'>
+        <div class="nav-content">
+          <div class="nav-mid">
+            <div class='contain'>
+              <input type='text' class='nav-field blunter' name='user_id' placeholder='Search User ID'>
+            </div>
+            <div class='contain'>
+              <input type='text' class='nav-field blunter' name='username' placeholder='Search Username'>
+            </div>
+            <div class='contain'>
+              <input type='text' class='nav-field blunter' name='email' placeholder='Search Email'>
+            </div>
+            <div class='contain'>
+              <div class="dropdown">
+                <button type="#" class='nav-field field_drop blunter' id='status_drop'>
+                  Select Status
+                  <div class="symbol_contain drop_color"><span class="material-icons">arrow_drop_down</span></div>
+                </button>
+                <div class="dropdown-container">
+                  <a class="dropdown-content" href="#">Active</a>
+                  <a class="dropdown-content" href="#">Inactive</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='contain'>
+            <button type="#" class='nav-field field_button blunter toska-500' id='add_user' onclick="openAddUserData()">
+              <span class="material-icons">person_add</span>
+              <div class="lg medium_font">Add User</div>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="tables table-data" id="table-user">
+        <!-- <div class='scrollable'> -->
+          <div class="wrapper">
+            <div class="table_medium" id="userid_user">
+              <div class="head header1">User ID</div>
+              <div class="rows medium Default">123456789</div>
+              <div class="rows medium Default">347341757</div>
+              <div class="rows medium Default">742938734</div>
+              <div class="rows medium Default">132147859</div>
+              <div class="rows medium Default">245346845</div>
+              <div class="rows medium Default">439953963</div>
+              <div class="rows medium Default">679020425</div>
+              <div class="rows medium Default">600054669</div>
+              <div class="rows medium Default">010109034</div>
+              <div class="rows medium Default">212035372</div>
+              <div class="rows medium Default">783128131</div>
+              <div class="rows medium Default">309830771</div>
+              <div class="rows medium Default">950962172</div>
+              <div class="rows medium Default">920965312</div>
+              <div class="rows medium Default">418825404</div>
+              <div class="rows medium Default">593477682</div>
+              <div class="rows medium Default">584658926</div>
+              <div class="rows medium Default">605290166</div>
+              <div class="rows medium Default">408182927</div>
+              <div class="rows medium Default">033571385</div>
+            </div>
+            <div class="table_medium" id="username_user">
+              <div class="head header1">Username</div>
+              <div class="rows medium Default">Susi Suanti</div>
+              <div class="rows medium Default">Digdaya Saputra</div>
+              <div class="rows medium Default">Tania Usamah</div>
+              <div class="rows medium Default">Budi  Wiranto</div>
+              <div class="rows medium Default">Halima Oktaviani</div>
+              <div class="rows medium Default">John Doe</div>
+              <div class="rows medium Default">Tiara Farida</div>
+              <div class="rows medium Default">Eli Purwanti</div>
+              <div class="rows medium Default">Iriana Nasyiah</div>
+              <div class="rows medium Default">Farah Farida</div>
+              <div class="rows medium Default">Setya Prakasa</div>
+              <div class="rows medium Default">Daryani Utama</div>
+              <div class="rows medium Default">Keisha Rahmawati</div>
+              <div class="rows medium Default">Bala Hidayat</div>
+              <div class="rows medium Default">Himawan Kurniawan</div>
+              <div class="rows medium Default">Zulfa Usamah</div>
+              <div class="rows medium Default">Hendri Marpaung</div>
+              <div class="rows medium Default">Asman Anggriawan</div>
+              <div class="rows medium Default">Warsa Kusumo</div>
+              <div class="rows medium Default">Garan Wasita</div>
+            </div>
+            <div class="table_medium" id="email_user">
+              <div class="head header1">Email</div>
+              <div class="rows medium Default">susi_suanti@gmail.com</div>
+              <div class="rows medium Default">digdayasaputra@gmail.com</div>
+              <div class="rows medium Default">tania.usamah@gmail.com</div>
+              <div class="rows medium Default">budi.wiranto@gmail.com</div>
+              <div class="rows medium Default">halimaoktaviani@gmail.com</div>
+              <div class="rows medium Default">John.Doe@gmail.com</div>
+              <div class="rows medium Default">tiara.farida@gmail.com</div>
+              <div class="rows medium Default">elipurwanti@gmail.com</div>
+              <div class="rows medium Default">iriananasyiah@gmail.com</div>
+              <div class="rows medium Default">farah.farida@gmail.com</div>
+              <div class="rows medium Default">setyap@gmail.com</div>
+              <div class="rows medium Default">daryani.utama@gmail.com</div>
+              <div class="rows medium Default">keisharahmawati@gmail.com</div>
+              <div class="rows medium Default">balahidayat@gmail.com</div>
+              <div class="rows medium Default">hkurniawan@gmail.com</div>
+              <div class="rows medium Default">zulfa.usamah@gmail.com</div>
+              <div class="rows medium Default">hendri.marpaung@gmail.com</div>
+              <div class="rows medium Default">asman.anggriawan@gmail.comm</div>
+              <div class="rows medium Default">warsakusumo@gmail.com</div>
+              <div class="rows medium Default">GaranWasita@gmail.com</div>
+            </div>
+            <div class="table_medium" id="status">
+              <div class="head header1">Status</div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+              <div class="rows medium Default"><button class="tag medium_tag"><div class="base">Active</div></button></div>
+            </div>
+            <div class="table_medium" id="action">
+              <div class="head header1">Action</div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+              <div class="rows medium Default">
+                <button class="tag medium_tag" id="edit_btn" onclick="openEditUserData()"><div class="base medium_font">Edit</div></button>
+                <div class="xl2">|</div>
+                <button class="tag medium_tag" id="delete_btn" onclick="deleteData()"><div class="base medium_font">Delete</div></button>
+              </div>
+            </div>
+          </div>
+        <!-- </div> -->
+      </div>
+      <div class="footer_nav">
+        <div class="sm">Page 1 of 34 | Displayed data : </div>
+      </div>
+      <!-- <div id='mainview'> -->
+        <!-- <div id="mainfield">
+          
+        </div> -->
+      <!-- </div>  -->
+    </div>
+  </div>
+  <!-- ---Popup Started--- -->
+  <div class="popup" id="addUserdata">
+    <div class="form-popup">
+      <form class="popup-container">
+        <div class="popup-header">
+          <div class="popup-desc">
+            <div class="xl3 bold">Add New User Data</div>
+          </div>
+          <div class="divider">
+            <button class="close" onclick="closePopup()"><span class="material-icons">close</span></button>
+          </div>
+        </div>
+        <div class="data-form">
+          <div class="form-input add-new">
+            <div class="xl medium-font">User ID</div>
+            <div class='contain'>
+              <input type='text' class='nav-field add-input' name='user_id' placeholder='Placeholder'>
+            </div>
+          </div>
+          <div class="form-input add-new">
+            <div class="xl medium-font">Username</div>
+            <div class='contain'>
+              <input type='text' class='nav-field add-input' name='user_name' placeholder='Placeholder'>
+            </div>
+          </div>
+          <div class="form-input add-new">
+            <div class="xl medium-font">Email</div>
+            <div class='contain'>
+              <input type='text' class='nav-field add-input' name='user_email' placeholder='Placeholder'>
+            </div>
+          </div>
+          <div class="form-input add-new">
+            <div class="xl medium-font">Status</div>
+            <div class='contain'>
+              <div class="dropdown add-input">
+                <button type="#" class='nav-field field_drop add-input' id='status-add_drop'>
+                  Placeholder
+                  <span class="material-icons">expand_more</span>
+                </button>
+                <div class="dropdown-container add-input">
+                  <a class="dropdown-content" href="#">Active</a>
+                  <a class="dropdown-content" href="#">Inactive</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="popup_bottom add_data_bottom">
+          <button class="regularButton large_btn" id="clear_btn"><div class="lg medium_font">Clear</div></button>
+          <button class="regularButton large_btn" id="submit_btn" onclick="closePopup()"><div class="lg medium_font">Submit</div></button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="popup" id="editUserdata">
+    <div class="form-popup">
+      <form class="popup-container">
+        <div class="popup-header">
+          <div class="popup-desc">
+            <div class="xl3 bold">Add New User Data</div>
+          </div>
+          <div class="divider">
+            <button class="close" onclick="closePopup()"><span class="material-icons">close</span></button>
+          </div>
+        </div>
+        <div class="data-form">
+          <div class="form-input add-new">
+            <div class="xl medium-font">User ID</div>
+            <div class='contain'>
+              <input type='text' class='nav-field add-input' name='user_id' disabled="disabled" placeholder='Placeholder'>
+            </div>
+          </div>
+          <div class="form-input add-new">
+            <div class="xl medium-font">Username</div>
+            <div class='contain'>
+              <input type='text' class='nav-field add-input' name='user_name' disabled="disabled" placeholder='Placeholder'>
+            </div>
+          </div>
+          <div class="form-input add-new">
+            <div class="xl medium-font">Email</div>
+            <div class='contain'>
+              <input type='text' class='nav-field add-input' name='user_email' disabled="disabled" placeholder='Placeholder'>
+            </div>
+          </div>
+          <div class="form-input add-new">
+            <div class="xl medium-font">Status</div>
+            <div class='contain'>
+              <div class="dropdown add-input">
+                <button type="#" class='nav-field field_drop add-input' disabled="disabled" id='status-add_drop'>
+                  Placeholder
+                  <span class="material-icons">expand_more</span>
+                </button>
+                <div class="dropdown-container add-input">
+                  <a class="dropdown-content" href="#">Active</a>
+                  <a class="dropdown-content" href="#">Inactive</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="popup_bottom add_data_bottom">
+          <button class="regularButton large_btn" id="clear_btn"><div class="lg medium_font">Clear</div></button>
+          <button class="regularButton large_btn" id="submit_btn" onclick="closePopup()"><div class="lg medium_font">Submit</div></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

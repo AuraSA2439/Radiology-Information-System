@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' type='text/css' href='styles.css'>
+    <link rel='stylesheet' type='text/css' href='library.css'>
+    <script src="js.js"></script>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD' crossorigin='anonymous'>
+    <link href='https://fonts.googleapis.com/css2?family=Asap' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>RSI - Welcome Poli!</title>
+</head>
+<body>
+  <div id='header'>
+    <img src='/resource/logo4_crop.png' width = 200px>
+    <button type="#" class="account" id="account" onclick="open_dropdown_account()">
+      <div class="circle"></div>
+      <div class="xl2">Budi Wiranto</div>
+    </button>
+    <div class="dropdown-container" id="dropdown_account">
+      <a class="dropdown-content with-icon" href="#">
+        <span class="material-icons nocolor">assignment_ind</span>
+        Manage Profile
+      </a>
+      <a class="dropdown-content with-icon" href="#">
+        <span class="material-icons nocolor">logout</span>
+        Log Out
+      </a>
+    </div>
+  </div>
+  <div id='page'>
+    <div id='sidemenu'>
+      <div class="wrapper sideM">
+        <div class="welcome">
+          <div class='lg'>June 2th 2024</div>
+          <div class='xl3 bold'>20:55:00 WIB</div>
+          <div class="lg">Good Evening Budi Wiranto!</div>
+        </div>
+        <div class='statusbar'>
+          <div class="textfield txtSM" id="history">
+            <span class="material-icons">history</span>
+            <div class="lg">Today's History</div>
+          </div>
+          <div class="wraps">
+            <div class="rows small">
+              <div class="sm">11:50:00</div>
+              <div class="tag small_tag Green">
+                <div class="sm">Normal</div>
+              </div>
+            </div>
+            <div class="rows small">
+              <div class="sm">09:30:00</div>
+              <div class="tag small_tag Red">
+                <div class="sm">CITO</div>
+              </div>
+            </div>
+            <div class="rows small">
+              <div class="sm">09:12:00</div>
+              <div class="tag small_tag Green">
+                <div class="sm">Normal</div>
+              </div>
+            </div>
+            <div class="rows small">
+              <div class="sm">17:07:00</div>
+              <div class="tag small_tag Red">
+                <div class="sm">CITO</div>
+              </div>
+            </div>
+          </div>
+          <div class="textfield" id="stats">
+            <div class="sm">Normal: 2 | CITO: 2</div>
+          </div>
+        </div>
+        <div class='statusbar'>
+          <div class="textfield txtSM" id="work">
+            <span class="material-icons">history</span>
+            <div class="lg">Today's Worklist</div>
+          </div>
+          <div class="wraps">
+            <div class="rows small">
+              <div class="sm">Not Started</div>
+              <div class="sm">0</div>
+            </div>
+            <div class="rows small">
+              <div class="sm">In Progress</div>
+              <div class="sm">1</div>
+            </div>
+            <div class="rows small">
+              <div class="sm">Done</div>
+              <div class="sm">2</div>
+            </div>
+          </div>
+        </div>
+        <div class='statusbar'>
+          <div class="textfield txtSM" id="modality">
+            <span class="material-icons">history</span>
+            <div class="lg">Today's Modality Data</div>
+          </div>
+          <div class="wraps">
+            <div class="rows small">
+              <div class="sm">CR</div>
+              <div class="sm">1</div>
+            </div>
+            <div class="rows small">
+              <div class="sm">CT</div>
+              <div class="sm">1</div>
+            </div>
+            <div class="rows small">
+              <div class="sm">PR</div>
+              <div class="sm">0</div>
+            </div>
+            <div class="rows small">
+              <div class="sm">MR</div>
+              <div class="sm">1</div>
+            </div>
+            <div class="rows small">
+              <div class="sm">DX</div>
+              <div class="sm">1</div>
+            </div>
+          </div>
+        </div>
+        <div class="clickable">
+          <span class="material-icons">keyboard_double_arrow_left</span>
+          <div class="lg">Collapse</div>
+        </div>
+      </div>  
+    </div>
+    <div id="mainframe">
+      <div id='nav-header'>
+        <div class='nav-icons left'>
+          <span class="material-icons">chevron_left</span>
+        </div>
+        <div class="nav-mid">
+          <div class='contain'>
+            <input type='text' class='nav-field' name='patient_id' placeholder='Patient ID'>
+          </div>
+          <div class='contain'>
+            <input type='text' class='nav-field' name='patient_name' placeholder='Patient Name'>
+          </div>
+          <div class='contain'>
+            <input type='text' class='nav-field' name='access_num' placeholder='Accession Number'>
+          </div>
+          <div class='contain'>
+            <button type="#" class='nav-field big_btn' id='filter_btn'>Today</button>
+          </div>
+          <div class='contain'>
+            <input type='text' class='nav-field' name='date_from' placeholder='Date From'>
+          </div>
+          <div class='contain small_line'>
+            <span class="material-icons">horizontal_rule</span>
+          </div>
+          <div class='contain'>
+            <input type='text' class='nav-field' name='date_to' placeholder='Date To'>
+          </div>
+          <div class='contain'>
+            <div class="dropdown">
+              <button type="#" class='nav-field field_drop' id='state_drop'>
+                Not Started
+                <div class="symbol_contain drop_color"><span class="material-icons">arrow_drop_down</span></div>
+              </button>
+              <div class="dropdown-container">
+                <a class="dropdown-content" href="#">Not Started</a>
+                <a class="dropdown-content" href="#">In Progress</a>
+                <a class="dropdown-content" href="#">Done</a>
+              </div>
+            </div>
+          </div>
+          <div class='contain'>
+            <input type='text' class='nav-field' name='nav_modal' placeholder='Modality'>
+          </div>
+          <div class='contain'>
+            <div class="dropdown">
+              <button type="#" class='nav-field field_drop' id='doc-name_drop'>
+                Select Doctor
+                <div class="symbol_contain drop_color"><span class="material-icons">arrow_drop_down</span></div>
+              </button>
+              <div class="dropdown-container">
+                <a class="dropdown-content" href="#">dr. John Doe</a>
+                <a class="dropdown-content" href="#">dr. Julia Yulianti</a>
+                <a class="dropdown-content" href="#">dr. Ega Simanjuntak</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='nav-icons right'>
+          <span class="material-icons">chevron_right</span>
+        </div>
+      </div>
+      <div id='mainview'>
+        <div id="mainfield">
+          <div class="tables" id="table1">
+            <!-- <div class='scrollable'> -->
+              <div class="wrapper">
+                <div class="table_medium" id="no1">
+                  <div class="head header1">No</div>
+                  <div class="rows medium Default">1</div>
+                  <div class="rows medium Default">2</div>
+                  <div class="rows medium Default">3</div>
+                  <div class="rows medium Default">4</div>
+                  <div class="rows medium Default">5</div>
+                  <div class="rows medium Default">6</div>
+                  <div class="rows medium Default">7</div>
+                  <div class="rows medium Default">8</div>
+                  <div class="rows medium Default">9</div>
+                  <div class="rows medium Default">10</div>
+                </div>
+                <div class="table_medium" id="status1">
+                  <div class="head header1">Status</div>
+                  <div class="rows medium Green">Normal</div>
+                  <div class="rows medium Red">CITO</div>
+                  <div class="rows medium Green">Normal</div>
+                  <div class="rows medium Red">CITO</div>
+                  <div class="rows medium Green">Normal</div>
+                  <div class="rows medium Red">CITO</div>
+                  <div class="rows medium Green">Normal</div>
+                  <div class="rows medium Green">CITO</div>
+                  <div class="rows medium Red">Normal</div>
+                  <div class="rows medium Green">CITO</div>
+                </div>
+                <div class="table_medium" id="date1">
+                  <div class="head header1">Date/Time</div>
+                  <div class="rows medium Default">22/07/2024 10:24:12</div>
+                  <div class="rows medium Default">22/07/2024 10:13:08</div>
+                  <div class="rows medium Default">22/07/2024 09:45:59</div>
+                  <div class="rows medium Default">22/07/2024 09:08:45</div>
+                  <div class="rows medium Default">19/07/2024 17:18:01</div>
+                  <div class="rows medium Default">19/07/2024 17:05:46</div>
+                  <div class="rows medium Default">19/07/2024 16:28:03</div>
+                  <div class="rows medium Default">19/07/2024 14:04:28</div>
+                  <div class="rows medium Default">19/07/2024 11:20:16</div>
+                  <div class="rows medium Default">19/07/2024 10:01:00</div>
+                </div>
+                <div class="table_medium" id="expertise1">
+                  <div class="head header1">Expertise</div>
+                  <div class="rows medium Grey">Not Started</div>
+                  <div class="rows medium Default">In Progress</div>
+                  <div class="rows medium Green">Normal</div>
+                  <div class="rows medium Grey">Not Started</div>
+                  <div class="rows medium Default">In Progress</div>
+                  <div class="rows medium Green">Normal</div>
+                  <div class="rows medium Grey">Not Started</div>
+                  <div class="rows medium Default">In Progress</div>
+                  <div class="rows medium Green">Normal</div>
+                  <div class="rows medium Grey">Not Started</div>
+                </div>
+                <div class="table_medium" id="patient_id1">
+                  <div class="head header1">Patient ID</div>
+                  <div class="rows medium Default">123456789</div>
+                  <div class="rows medium Default">092388746</div>
+                  <div class="rows medium Default">664578933</div>
+                  <div class="rows medium Default">765435673</div>
+                  <div class="rows medium Default">988973645</div>
+                  <div class="rows medium Default">362784564</div>
+                  <div class="rows medium Default">546476489</div>
+                  <div class="rows medium Default">845526837</div>
+                  <div class="rows medium Default">546789786</div>
+                  <div class="rows medium Default">097876551</div>
+                </div>
+                <div class="table_medium" id="patient_name1">
+                  <div class="head header1">Patient Name</div>
+                  <div class="rows medium Default">Agus Priyagus</div>
+                  <div class="rows medium Default">Ari Raharjo Sudjarwadi</div>
+                  <div class="rows medium Default">Khaira Tupan</div>
+                  <div class="rows medium Default">Ratih Novitasari</div>
+                  <div class="rows medium Default">Cahya Iskandar Tedjo</div>
+                  <div class="rows medium Default">Yessi Andriani</div>
+                  <div class="rows medium Default">Suratman</div>
+                  <div class="rows medium Default">Sutikno</div>
+                  <div class="rows medium Default">Andrew Sinulaki</div>
+                  <div class="rows medium Default">Sri Eka Kurniawan</div>
+                </div>
+                <div class="table_medium" id="an1">
+                  <div class="head header1">AN</div>
+                  <div class="rows medium Default">860830096025</div>
+                  <div class="rows medium Default">367259987304</div>
+                  <div class="rows medium Default">059262930254</div>
+                  <div class="rows medium Default">037287876461</div>
+                  <div class="rows medium Default">362153608698</div>
+                  <div class="rows medium Default">983338513073</div>
+                  <div class="rows medium Default">845997080656</div>
+                  <div class="rows medium Default">624435017058</div>
+                  <div class="rows medium Default">080006958116</div>
+                  <div class="rows medium Default">867251263098</div>
+                </div>
+                <div class="table_medium" id="modality1">
+                  <div class="head header1">Modality</div>
+                  <div class="rows medium Default">CR</div>
+                  <div class="rows medium Default">CT</div>
+                  <div class="rows medium Default">MR</div>
+                  <div class="rows medium Default">DX</div>
+                  <div class="rows medium Default">PR</div>
+                  <div class="rows medium Default">CR</div>
+                  <div class="rows medium Default">CT</div>
+                  <div class="rows medium Default">PR</div>
+                  <div class="rows medium Default">MR</div>
+                  <div class="rows medium Default">DX</div>
+                </div>
+                <div class="table_medium" id="study1">
+                  <div class="head header1">Study Type</div>
+                  <div class="rows medium Default">THORAX PA</div>
+                  <div class="rows medium Default">THORAX PA</div>
+                  <div class="rows medium Default">THORAX PA</div>
+                  <div class="rows medium Default">THORAX PA</div>
+                  <div class="rows medium Default">THORAX PA</div>
+                  <div class="rows medium Default">THORAX PA</div>
+                  <div class="rows medium Default">THORAX PA</div>
+                  <div class="rows medium Default">THORAX PA</div>
+                  <div class="rows medium Default">THORAX PA</div>
+                  <div class="rows medium Default">THORAX PA</div>
+                </div>
+                <div class="table_medium" id="doc_name1">
+                  <div class="head header1">Doctor Name</div>
+                  <div class="rows medium Default">dr. John Doe</div>
+                  <div class="rows medium Default">dr. Julia Yulianti</div>
+                  <div class="rows medium Default">dr. Ega Simanjuntak</div>
+                  <div class="rows medium Default">dr. John Doe</div>
+                  <div class="rows medium Default">dr. Julia Yulianti</div>
+                  <div class="rows medium Default">dr. Ega Simanjuntak</div>
+                  <div class="rows medium Default">dr. John Doe</div>
+                  <div class="rows medium Default">dr. Julia Yulianti</div>
+                  <div class="rows medium Default">dr. Ega Simanjuntak</div>
+                  <div class="rows medium Default">dr. John Doe</div>
+                </div>
+              </div>
+            <!-- </div> -->
+          </div>
+          <div class="footer_nav">
+            <div class="sm">Page 1 of 34 | Displayed data : </div>
+          </div>
+        </div>
+        <button class="dicom_frame" onclick="openDicomViewer()">
+          <img src='/resource/dicom2.png'>
+        </button>
+      </div>
+      <div id='secondaryview'>
+        <div  class="patient_history">
+          <div class="textfield txtPH">
+            <span class="material-icons">menu_book</span>
+            <div class="xl">Patient History</div>
+          </div>
+          <div class="tables" id="table2">
+            <div class="wrapper">
+              <div class="table_large" id="no2">
+                <div class="head header2">No</div>
+                <div class="rows large Default">1</div>
+                <div class="rows large Default">2</div>
+                <div class="rows large Default">3</div>
+                <div class="rows large Default">4</div>
+                <div class="rows large Default">5</div>
+                <div class="rows large Default">6</div>
+                <div class="rows large Default">7</div>
+                <div class="rows large Default">8</div>
+                <div class="rows large Default">9</div>
+                <div class="rows large Default">10</div>
+              </div>
+              <div class="table_large" id="thumb2">
+                <div class="head header2">Thumbnail</div>
+                <div class="rows large Default"><img src='/resource/dicom1.png'></div>
+                <div class="rows large Default"><img src='/resource/dicom2.png' width="100px"></div>
+                <div class="rows large Default"><img src='/resource/dicom3.png'></div>
+                <div class="rows large Default"><img src='/resource/dicom4.png'></div>
+                <div class="rows large Default"><img src='/resource/dicom5.png'></div>
+                <div class="rows large Default"><img src='/resource/dicom6.png'></div>
+                <div class="rows large Default"><img src='/resource/dicom7.png'></div>
+                <div class="rows large Default"><img src='/resource/dicom8.png'></div>
+                <div class="rows large Default"><img src='/resource/dicom9.png'></div>
+                <div class="rows large Default"><img src='/resource/dicom10.png'></div>
+              </div>
+              <div class="table_large" id="num2">
+                <div class="head header2">Number</div>
+                <div class="rows large Default">101</div>
+                <div class="rows large Default">102</div>
+                <div class="rows large Default">103</div>
+                <div class="rows large Default">104</div>
+                <div class="rows large Default">105</div>
+                <div class="rows large Default">106</div>
+                <div class="rows large Default">107</div>
+                <div class="rows large Default">108</div>
+                <div class="rows large Default">109</div>
+                <div class="rows large Default">110</div>
+              </div>
+              <div class="table_large" id="date2">
+                <div class="head header2">Series Date</div>
+                <div class="rows large Default">22/07/2024 10:24:12</div>
+                <div class="rows large Default">22/07/2024 10:24:12</div>
+                <div class="rows large Default">22/07/2024 10:24:12</div>
+                <div class="rows large Default">22/07/2024 10:24:12</div>
+                <div class="rows large Default">22/07/2024 10:24:12</div>
+                <div class="rows large Default">22/07/2024 10:24:12</div>
+                <div class="rows large Default">22/07/2024 10:24:12</div>
+                <div class="rows large Default">22/07/2024 10:24:12</div>
+                <div class="rows large Default">22/07/2024 10:24:12</div>
+                <div class="rows large Default">22/07/2024 10:24:12</div>
+              </div>
+              <div class="table_large" id="modality2">
+                <div class="head header2">Modality</div>
+                <div class="rows large Default">CR</div>
+                <div class="rows large Default">CT</div>
+                <div class="rows large Default">MR</div>
+                <div class="rows large Default">DX</div>
+                <div class="rows large Default">PR</div>
+                <div class="rows large Default">CR</div>
+                <div class="rows large Default">CT</div>
+                <div class="rows large Default">PR</div>
+                <div class="rows large Default">MR</div>
+                <div class="rows large Default">DX</div>
+              </div>
+              <div class="table_large" id="body2">
+                <div class="head header2">Body Part</div>
+                <div class="rows large Default">THORAX PA</div>
+                <div class="rows large Default">THORAX PA</div>
+                <div class="rows large Default">THORAX PA</div>
+                <div class="rows large Default">THORAX PA</div>
+                <div class="rows large Default">THORAX PA</div>
+                <div class="rows large Default">THORAX PA</div>
+                <div class="rows large Default">THORAX PA</div>
+                <div class="rows large Default">THORAX PA</div>
+                <div class="rows large Default">THORAX PA</div>
+                <div class="rows large Default">THORAX PA</div>
+              </div>
+              <div class="table_large" id="ins2">
+                <div class="head header2">Instances</div>
+                <div class="rows large Default">1</div>
+                <div class="rows large Default">2</div>
+                <div class="rows large Default">1</div>
+                <div class="rows large Default">2</div>
+                <div class="rows large Default">2</div>
+                <div class="rows large Default">1</div>
+                <div class="rows large Default">1</div>
+                <div class="rows large Default">1</div>
+                <div class="rows large Default">1</div>
+                <div class="rows large Default">2</div>
+              </div>
+            </div>
+          </div> 
+        </div>
+        <div class="expertise">
+          <div class="wrapper wrap2comp">
+            <div class="textfield txtEX">
+              <span class="material-icons">rate_review</span>
+              <div class="xl">Expertise</div>
+            </div>
+            <button class="regularButton small_btn" id="update_btn">Update</button>
+          </div>
+          <div class="wrapper2">
+            <button class="input_field" onclick="openInsertExpertise()">Click to input</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popup" id="dicomViewer">
+    <div class="form-popup default-popup">
+      <form class="popup-container">
+        <div class="popup-header">
+          <div class="popup-desc">
+            <div class="xl bold">DICOM Viewer</div>
+            <div class="lg medium">Patient ID: 123123 | Patient Name: Agus Priyagus</div>
+          </div>
+          <div class="divider">
+            <div class="dropdown sm">
+              <button type="" class='nav-field field_drop' id='temp_drop'>
+                Select Template
+                <div class="symbol_contain drop_color"><span class="material-icons">arrow_drop_down</span></div>
+              </button>
+              <div class="dropdown-container">
+                <a class="dropdown-content" href="#">Diagnosis</a>
+                <a class="dropdown-content" href="#">Referral</a>
+                <a class="dropdown-content" href="#">Patient Note</a>
+                <a class="dropdown-content" href="#">Create New Template</a>
+              </div>
+            </div>
+            <button class="close" onclick="closePopup()"><span class="material-icons">close</span></button>
+          </div>
+        </div>
+        <div class="dicom_image" id="in-dicom-viewer">
+          DICOM IMAGE
+          <img src="#" alt="">
+        </div>
+        <div class="editor">
+          <div class="tools_container" id="tools_row1">
+            <button class="tools_contain"><span class="material-icons">format_bold</span></button>
+            <button class="tools_contain"><span class="material-icons">format_italic</span></button>
+            <button class="tools_contain"><span class="material-icons">format_underline</span></button>
+            <button class="tools_contain"><span class="material-icons">strikethrough_s</span></button>
+            <button class="tools_contain"><span class="material-icons">format_clear</span></button>
+            <button class="tools_contain"><span class="material-icons">superscript</span></button>
+            <button class="tools_contain"><span class="material-icons">subscript</span></button>
+            <div class="dropdown sm">
+              <button type="" class='nav-field field_drop' id='fontweight_drop'>
+                Normal
+                <div class="symbol_contain drop_nocolor"><span class="material-icons nocolor">arrow_drop_down</span></div>
+              </button>
+              <div class="dropdown-container">
+                <a class="dropdown-content" href="#">Regular</a>
+                <a class="dropdown-content" href="#">Medium</a>
+                <a class="dropdown-content" href="#">Bold</a>
+              </div>
+            </div>
+            <div class="dropdown sm">
+              <button type="" class='nav-field field_drop' id='fontsize_drop'>
+                <span class="material-icons small_icon nocolor">text_fields</span>
+                <div class="symbol_contain drop_nocolor"><span class="material-icons nocolor">arrow_drop_down</span></div>
+              </button>
+              <div class="dropdown-container">
+                <a class="dropdown-content" href="#">-</a>
+                <a class="dropdown-content" href="#">-</a>
+                <a class="dropdown-content" href="#">-</a>
+              </div>
+            </div>
+            <div class="dropdown sm">
+              <button type="" class='nav-field field_drop' id='font_drop'>
+                Font
+                <div class="symbol_contain drop_nocolor"><span class="material-icons nocolor">arrow_drop_down</span></div>
+              </button>
+              <div class="dropdown-container">
+                <a class="dropdown-content" href="#">Calibri</a>
+                <a class="dropdown-content" href="#">Times New Roman</a>
+                <a class="dropdown-content" href="#">Open Sans</a>
+              </div>
+            </div>
+          </div>
+          <div class="tools_container" id="tools_row2">
+            <button class="tools_contain"><span class="material-icons">format_list_bulleted</span></button>
+            <button class="tools_contain"><span class="material-icons">format_list_numbered</span></button>
+            <button class="tools_contain"><span class="material-icons">format_indent_increase</span></button>
+            <button class="tools_contain"><span class="material-icons">format_indent_decrease</span></button>
+            <button class="tools_contain"><span class="material-icons">format_align_left</span></button>
+            <button class="tools_contain"><span class="material-icons">format_align_center</span></button>
+            <button class="tools_contain"><span class="material-icons">format_align_right</span></button>
+            <button class="tools_contain"><span class="material-icons">format_align_justify</span></button>
+            <button class="tools_contain"><span class="material-icons">colorize</span></button>
+            <button class="tools_contain"><span class="material-icons">link</span></button>
+            <button class="tools_contain"><span class="material-icons">link_off</span></button>
+            <button class="tools_contain"><span class="material-icons">content_copy</span></button>
+            <button class="tools_contain"><span class="material-icons">emoji_emotions</span></button>
+            <button class="tools_contain"><span class="material-icons">add_photo_alternate</span></button>
+            <!-- ngak ketemu erase di google material -->
+            <button class="tools_contain"><span class="material-icons">format_quote</span></button>
+            <button class="tools_contain"><span class="material-icons">undo</span></button>
+            <button class="tools_contain"><span class="material-icons">redo</span></button>
+          </div>
+        </div> 
+        <div class="popup_bottom">
+          <button class="regularButton mid_btn" id="clear_btn">Clear</button>
+          <button class="regularButton mid_btn" id="submit_btn" onclick="closePopup()">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="popup" id="insertExpertise">
+    <div class="form-popup default-popup">
+      <form class="popup-container">
+        <div class="popup-header">
+          <div class="popup-desc">
+            <div class="xl bold">Insert Expertise</div>
+            <div class="lg medium">Patient ID: 123123 | Patient Name: Agus Priyagus</div>
+          </div>
+          <div class="divider">
+            <div class="dropdown sm">
+              <button type="" class='nav-field field_drop' id='temp_drop'>
+                Select Template
+                <div class="symbol_contain drop_color"><span class="material-icons">arrow_drop_down</span></div>
+              </button>
+              <div class="dropdown-container">
+                <a class="dropdown-content" href="#">Diagnosis</a>
+                <a class="dropdown-content" href="#">Referral</a>
+                <a class="dropdown-content" href="#">Patient Note</a>
+                <a class="dropdown-content" href="#">Create New Template</a>
+              </div>
+            </div>
+            <button class="close" onclick="closePopup()"><span class="material-icons">close</span></button>
+            <!-- ngak tau ini kenapa close nya ngak bisa. padahal di dicom viewer bisa. -->
+          </div>
+        </div>
+        <div class="dicom_image" id="in-insert-expertise">
+          <img src="/resource/dicom2.png" width="200px" alt="">
+        </div>
+        <div class="editor">
+          <div class="tools_container" id="tools_row1">
+            <button class="tools_contain"><span class="material-icons">format_bold</span></button>
+            <button class="tools_contain"><span class="material-icons">format_italic</span></button>
+            <button class="tools_contain"><span class="material-icons">format_underline</span></button>
+            <button class="tools_contain"><span class="material-icons">strikethrough_s</span></button>
+            <button class="tools_contain"><span class="material-icons">format_clear</span></button>
+            <button class="tools_contain"><span class="material-icons">superscript</span></button>
+            <button class="tools_contain"><span class="material-icons">subscript</span></button>
+            <div class="dropdown sm">
+              <button type="" class='nav-field field_drop' id='fontweight_drop'>
+                Normal
+                <div class="symbol_contain drop_nocolor"><span class="material-icons nocolor">arrow_drop_down</span></div>
+              </button>
+              <div class="dropdown-container">
+                <a class="dropdown-content" href="#">Regular</a>
+                <a class="dropdown-content" href="#">Medium</a>
+                <a class="dropdown-content" href="#">Bold</a>
+              </div>
+            </div>
+            <div class="dropdown sm">
+              <button type="" class='nav-field field_drop' id='fontsize_drop'>
+                <span class="material-icons small_icon nocolor">text_fields</span>
+                <div class="symbol_contain drop_nocolor"><span class="material-icons nocolor">arrow_drop_down</span></div>
+              </button>
+              <div class="dropdown-container">
+                <a class="dropdown-content" href="#">-</a>
+                <a class="dropdown-content" href="#">-</a>
+                <a class="dropdown-content" href="#">-</a>
+              </div>
+            </div>
+            <div class="dropdown sm">
+              <button type="" class='nav-field field_drop' id='font_drop'>
+                Font
+                <div class="symbol_contain drop_nocolor"><span class="material-icons nocolor">arrow_drop_down</span></div>
+              </button>
+              <div class="dropdown-container">
+                <a class="dropdown-content" href="#">Calibri</a>
+                <a class="dropdown-content" href="#">Times New Roman</a>
+                <a class="dropdown-content" href="#">Open Sans</a>
+              </div>
+            </div>
+          </div>
+          <div class="tools_container" id="tools_row2">
+            <button class="tools_contain"><span class="material-icons">format_list_bulleted</span></button>
+            <button class="tools_contain"><span class="material-icons">format_list_numbered</span></button>
+            <button class="tools_contain"><span class="material-icons">format_indent_increase</span></button>
+            <button class="tools_contain"><span class="material-icons">format_indent_decrease</span></button>
+            <button class="tools_contain"><span class="material-icons">format_align_left</span></button>
+            <button class="tools_contain"><span class="material-icons">format_align_center</span></button>
+            <button class="tools_contain"><span class="material-icons">format_align_right</span></button>
+            <button class="tools_contain"><span class="material-icons">format_align_justify</span></button>
+            <button class="tools_contain"><span class="material-icons">colorize</span></button>
+            <button class="tools_contain"><span class="material-icons">link</span></button>
+            <button class="tools_contain"><span class="material-icons">link_off</span></button>
+            <button class="tools_contain"><span class="material-icons">content_copy</span></button>
+            <button class="tools_contain"><span class="material-icons">emoji_emotions</span></button>
+            <button class="tools_contain"><span class="material-icons">add_photo_alternate</span></button>
+            <!-- ngak ketemu erase di google material -->
+            <button class="tools_contain"><span class="material-icons">format_quote</span></button>
+            <button class="tools_contain"><span class="material-icons">undo</span></button>
+            <button class="tools_contain"><span class="material-icons">redo</span></button>
+          </div>
+        </div>
+        <div class="insert-text">
+          Pasien mengidap penyakit...
+        </div> 
+        <div class="popup_bottom">
+          <button class="regularButton mid_btn" id="clear_btn">Clear</button>
+          <button class="regularButton mid_btn" id="submit_btn" onclick="closePopup()">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+<!-- The form -->
+</html>
