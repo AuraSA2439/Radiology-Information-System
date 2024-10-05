@@ -1,2 +1,2 @@
 # Radiology-Information-System
-A dashboard based radiology information system complete with it's CRUD.
+A HTML/CSS dashboard based radiology information system complete with it's CRUD and Javascript to allow interactiveness.
